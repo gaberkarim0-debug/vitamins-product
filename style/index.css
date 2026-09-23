@@ -1,0 +1,45 @@
+body {
+     font-family: "Roboto", sans-serif;
+}
+
+nav {
+     background-color: green;
+}
+
+nav .logo h1 {
+     font-family: "Comfortaa", sans-serif;
+     transition: 0.5s;
+}
+nav .logo h1:hover {
+     color: #eeed;
+}
+nav .links .product {
+     transition: 0.5s;
+     
+} 
+nav .links .product:hover {
+     background-color: #2c7500;
+     padding: 10px;
+     border-radius: 20px;
+
+}
+nav .links .cart {
+     transition: 0.5s;
+} 
+nav .links .cart:hover {
+     background-color: #2c7500;
+     padding: 10px;
+     border-radius: 30px;
+}
+.item .content .add-to-cart {
+     background-color: orange;
+     transition: 0.5s;
+}
+.item .content .add-to-cart:hover {
+     background-color: rgb(236, 160, 19);
+}
+.item .content .category {
+     border: 1px solid #eee;
+     padding: 10px;
+     border-radius: 8px;
+}
