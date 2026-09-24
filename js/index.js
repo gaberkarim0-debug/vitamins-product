@@ -10,6 +10,7 @@ const products = [
       "NOW Foods, Magnesium Glycinate, 180 Tablets (100 mg per Tablet)",
     price: 990,
     dis: 2000,
+    id:1,
   },
   {
     img: "../images/vitamin-best.avif",
@@ -19,6 +20,7 @@ const products = [
     price: 2190,
     dis: 3000,
     rate: ``,
+    id:2,
   },
   {
     img: "../images/omega-vitamin.avif",
@@ -27,6 +29,7 @@ const products = [
       "California Gold Nutrition, Omega-3 Premium Fish Oil, 100 Fish Gelatin Softgels (1,100 mg per Softgel)",
     price: 643,
     dis: 900,
+    id:3,
   },
   {
     img: "../images/life-vitamin.avif",
@@ -35,6 +38,7 @@ const products = [
       "Life Extension, BioActive Complete B-Complex, 60 Vegetarian Capsules",
     price: 609,
     dis: 800,
+    id:4,
   },
   {
     img: "../images/ashwaganda.avif",
@@ -43,6 +47,7 @@ const products = [
       "Swanson Vitamins, Full Spectrum® Ashwagandha, 450 mg, 100 Vegan Capsules",
     price: 471,
     dis: 500,
+    id:5,
   },
   {
     img: "../images/vitamin.avif",
@@ -50,6 +55,7 @@ const products = [
     discreption: "Nutricost, Multivitamin, 120 Capsules",
     price: 742,
     dis: 999,
+    id:6,
   },
   {
     img: "../images/creatine.avif",
@@ -58,6 +64,7 @@ const products = [
       "Optimum Nutrition, Micronized Creatine Powder, Unflavored, 1.32 lb (600 g)",
     price: 2138,
     dis: 2700,
+    id:7,
   },
   {
     img: "..//images/whey-protein.avif",
@@ -66,6 +73,7 @@ const products = [
       "Optimum Nutrition, Gold Standard® 100% Whey Protein, Double Rich Chocolate, 5.05 lb (2.29 kg)",
     price: 7283,
     dis: 8000,
+    id:8,
   },
   {
     img: "../images/supplement.avif",
@@ -74,6 +82,7 @@ const products = [
       "NutraBio, Intra Blast, Advanced Intra-Workout, Passion Fruit, 1.56 lb (712 g)",
     price: 2512,
     dis: 2990,
+    id:9,
   },
   {
     img: "../images/intra-preworkout.avif",
@@ -82,6 +91,7 @@ const products = [
       "NutraBio, Intra Blast, Advanced Intra-Workout, Tropical Fruit Punch, 1.58 lb (717 g)",
     price: 2512,
     dis: 3200,
+    id:10,
   },
   {
     img: "../images/granola.avif",
@@ -90,6 +100,7 @@ const products = [
       "Bob's Red Mill, Granola, Honey Oat, Gluten Free , 12 oz (340 g)",
     price: 491,
     dis: 520,
+    id:11,
   },
   {
     img: "../images/oat-breakfast.avif",
@@ -97,6 +108,7 @@ const products = [
     discreption: "Bob's Red Mill, Classic Pancake & Waffle Mix, 24 oz (680 g)",
     price: 625,
     dis: 730,
+    id:12,
   },
   {
     img: "../images/strawbeery-snacks.avif",
@@ -105,6 +117,7 @@ const products = [
       "California Gold Nutrition, Foods, Freeze-Dried Strawberry, Ready to Eat Whole Freeze-Dried Slices, 1 oz (28 g)",
     price: 277,
     dis: 299,
+    id:13,
   },
   {
     img: "../images/toast-coconut.avif",
@@ -113,6 +126,7 @@ const products = [
       "Chimes, Toasted Coconut Hard Toffee with Sea Salt, 3.5 oz (100 g)",
     price: 252,
     dis: 310,
+    id:14,
   },
 ];
 // fuctions
@@ -199,7 +213,7 @@ function displayProducts() {
                   >EGP${product.dis}</del
                 ></span
               >
-              <button onclick="addToCart(${i})" class="btn add-to-cart text-white">Add to Cart</button>
+              <button onclick="addToCart(${product.id})" class="btn add-to-cart text-white">Add to Cart</button>
             </div>
           </div>
         </div>`;
@@ -291,7 +305,7 @@ function displayVitamin() {
                   >EG${item.dis}</del
                 ></span
               >
-              <button onclick="addToCart(${i})" class="btn add-to-cart text-white">Add to Cart</button>
+              <button onclick="addToCart(${item.id})" class="btn add-to-cart text-white">Add to Cart</button>
             </div>
           </div>
         </div>`;
@@ -382,7 +396,7 @@ supplements.forEach((supplement, i) => {
                   >EG${supplement.dis}</del
                 ></span
               >
-              <button onclick="addToCart(${i})" class="btn add-to-cart text-white">Add to Cart</button>
+              <button onclick="addToCart(${supplement.id})" class="btn add-to-cart text-white">Add to Cart</button>
             </div>
           </div>
         </div>`;
@@ -473,14 +487,15 @@ function showGroceryItem () {
                   >EG${item.dis}</del
                 ></span
               >
-              <button onclick="addToCart(${i})" class="btn add-to-cart text-white">Add to Cart</button>
+              <button onclick="addToCart(${item.id})" class="btn add-to-cart text-white">Add to Cart</button>
             </div>
           </div>
         </div>`;
   })
 }
-// delete
-let addToCart = (index) => {
-  cart.push(products[index]);
+// Add to cart
+let addToCart = (productId) => {
+  const inventory = products.find(({id}) => id === productId)
+  cart.push(inventory);
   localStorage.setItem("cart", JSON.stringify(cart));
 };
