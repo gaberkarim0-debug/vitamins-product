@@ -31,6 +31,25 @@ nav .links .cart:hover {
      padding: 10px;
      border-radius: 30px;
 }
+.nav-tap {
+border-bottom: 1px solid #eee;
+padding: 10px 20px;
+gap: 40px;
+justify-content: center;
+cursor: pointer;
+}
+.nav-tap li {
+     background-color: green;
+     color: white ;
+     padding: 10px 20px;
+     border-radius: 20px;
+     transition: 0.5s;
+}
+.nav-tap li:hover {
+     background-color: #2c7500;
+     color: #eee;
+     transform: scale(0.9);
+}
 .item .content .add-to-cart {
      background-color: orange;
      transition: 0.5s;
@@ -42,4 +61,7 @@ nav .links .cart:hover {
      border: 1px solid #eee;
      padding: 10px;
      border-radius: 8px;
+}
+.item img {
+     width: 200px;
 }
